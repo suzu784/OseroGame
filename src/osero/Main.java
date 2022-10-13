@@ -3,6 +3,7 @@ package osero;
 import java.util.Scanner;
 
 import osero.config.StartConfig;
+import osero.model.ReverseOsero;
 import osero.view.ShowBoard;
 
 public class Main {
@@ -17,6 +18,9 @@ public class Main {
     // 入力値の情報を保持する
     private static int inputX;
     private static int inputy;
+    
+    static String x = "0";
+    static String y = "0";
 
     public static void main(String[] args) {
 
@@ -24,6 +28,8 @@ public class Main {
         StartConfig SC = new StartConfig();
         ShowBoard SB = new ShowBoard();
         Scanner sc = new Scanner(System.in);
+        ReverseOsero RO = new ReverseOsero();
+        CheckInputValue CIV = new CheckInputValue();
 
         System.out.println("オセロを開始します.");
 
@@ -33,12 +39,34 @@ public class Main {
         //ボードを表示する
         SB.showBoard(board);
         
-        // x座標を入力する処理
-        System.out.println("横の座標を1~8の半角数字で入力してください");
-        inputX = sc.nextInt();
+        while(true) {
+        	// x座標を入力する処理
+        	System.out.println("横の座標を1~8の半角数字で入力してください");
+        	x = sc.next();
+        	if (CIV.checkInt1_8(x)) {
+        		inputX = Integer.parseInt(x);
+        	} else {
+        		System.out.println("!!!!!!!!!!その値は無効です!!!!!!!!!!");
+        		System.out.println("1~8の半角数字を入力してください");
+        	}
+        }
         
-        // y座標を入力する処理
-        System.out.println("縦の座標を1~8の半角数字で入力してください");
-        inputy = sc.nextInt();
+        while(true) {
+        	// y座標を入力する処理
+        	System.out.println("縦の座標を1~8の半角数字で入力してください");
+        	y = sc.next();
+        	if (CIV.checkInt1_8(y)) {
+        		inputy = Integer.parseInt(y);
+        	} else {
+        		System.out.println("!!!!!!!!!!その値は無効です!!!!!!!!!!");
+        		System.out.println("1~8の半角数字を入力してください");
+        	}
+        }
+        
+        
+        // 入力した座標にオセロを置く
+        RO.putOsero(inputX, inputy);
+        
+        SB.showBoard(board);
     }
 }
