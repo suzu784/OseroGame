@@ -3,6 +3,7 @@ package osero;
 import java.util.Scanner;
 
 import osero.config.StartConfig;
+import osero.middleware.CheckInputValue;
 import osero.model.ReverseOsero;
 import osero.view.ShowBoard;
 
