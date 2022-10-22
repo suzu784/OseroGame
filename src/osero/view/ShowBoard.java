@@ -1,6 +1,12 @@
 package osero.view;
 
+import osero.Main;
+import osero.model.CountBlackWhite;
+
 public class ShowBoard {
+	
+	// インスタンスの作成
+	CountBlackWhite CBW = new CountBlackWhite();
 
     //Mainのboard配列を受け取って、それをもとにオセロボードを表示する
     public void showBoard(String[][] board) {
@@ -15,5 +21,9 @@ public class ShowBoard {
                 }
             }
         }
+        
+        // ボード上のオセロの数を数えて表示する
+        System.out.println("黒の数：" + CBW.countBlack(Main.board));
+        System.out.println("白の数：" + CBW.countWhite(Main.board));
     }
 }

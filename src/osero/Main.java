@@ -52,16 +52,17 @@ public class Main {
         	}
         }
         
-        while(true) {
-        	// y座標を入力する処理
-        	System.out.println("縦の座標を1~8の半角数字で入力してください");
-        	y = sc.next();
-        	if (CIV.checkInt1_8(y)) {
-        		inputy = Integer.parseInt(y);
-        	} else {
-        		System.out.println("!!!!!!!!!!その値は無効です!!!!!!!!!!");
-        		System.out.println("1~8の半角数字を入力してください");
-        	}
+        while(true){
+            //Y座標を入力する処理
+            System.out.println("縦の座標を1~8の半角数字で入力してください");
+            y = sc.next();
+
+            if(CIV.checkInt1_8(y)) {
+                inputy = Integer.parseInt(y);
+            }else {
+                System.out.println("!!!!!!!!!!その値は無効です!!!!!!!!!!");
+                System.out.println("1~8の半角数字を入力してください");
+            }
         }
         
         
